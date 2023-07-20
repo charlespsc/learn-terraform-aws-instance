@@ -10,13 +10,13 @@ terraform {
 }
 
 provider "aws" {
-  profile = "default"  
   region  = "us-west-2"
 }
 
 resource "aws_instance" "app_server" {
-  ami           = "ami-830c94e3"
+  ami           = "ami-03f65b8614a860c29"
   instance_type = "t2.micro"
+  key_name = "charlespscKey"
 
   tags = {
     Name = "Primeira Instancia"
