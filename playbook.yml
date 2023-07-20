@@ -1,0 +1,8 @@
+- hosts: terraform-ansible
+  tasks: 
+  - name: criando o aquivo
+    copy: 
+      dest: /home/ubuntu/index.html
+      content: <h1>Feito com terraform e ansible - Esse bilhete é verdade</h1>
+  - name: criando servidor
+    shell: "nohup busybox httpd -f -p 8080 &"

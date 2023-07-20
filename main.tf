@@ -17,8 +17,8 @@ resource "aws_instance" "app_server" {
   ami           = "ami-03f65b8614a860c29"
   instance_type = "t2.micro"
   key_name = "charlespscKey"
-
+ 
   tags = {
-    Name = "Primeira Instancia"
+    Name = "Instancia AWS - teste"
   }
 }
