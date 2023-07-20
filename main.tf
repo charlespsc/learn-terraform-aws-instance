@@ -19,6 +19,6 @@ resource "aws_instance" "app_server" {
   key_name = "charlespscKey"
  
   tags = {
-    Name = "Instancia AWS - teste"
+    Name = "Instancia AWS - Terraform Ansible Python3"
   }
 }
