@@ -26,3 +26,23 @@ $ terraform apply
 ```
 $ ansible-playbook playbook.yml -u ubuntu --private-key=charlespscKey.pem -i hosts.yml
 ```
+Nós podemos com o Ansibe fazer instalações como no exemplo instalei python3, virtualenv e o django.
+Segue abaixo alguns comandos: 
+  ```
+  $ venv/bin/activate
+  $ pip freeze
+  $ django-admin startprojet setup .
+  $ python3 manage.py runserver 0.0.0.0:8000
+  ```
+  - rodar o django no IP:PORTA da máquina, mas precisamos permitir o IP no Django no arquivo settings.py dentro da pasta setup.
+    
+  ```
+  ALLOWED_HOSTS = ['*']
+  ```
+### Ansible realizar tarefas em SHELL
+- Vamos editar a tarefa no playbook.yml com o seguinte:
+  ```
+  - name: Iniciando o projeto
+      shell: 'comando 1; comando 2; comando 3'
+  ```
+
