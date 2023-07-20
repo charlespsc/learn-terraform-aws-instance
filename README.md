@@ -35,14 +35,27 @@ Segue abaixo alguns comandos:
   $ python3 manage.py runserver 0.0.0.0:8000
   ```
   - rodar o django no IP:PORTA da máquina, mas precisamos permitir o IP no Django no arquivo settings.py dentro da pasta setup.
-    
+  - As configurações dos projetos Django ficam em um arquivo chamado settings.py e podemos pedir para o Ansible fazer isso da seguinte forma:
+      
   ```
-  ALLOWED_HOSTS = ['*']
+  path: /home/ubuntu/tcc/setup/settings.py
+  regexp: 'ALLOWED_HOSTS'
+  line: 'ALLOWED_HOSTS = ["*"]'
+  backrefs: yes
   ```
+
+
 ### Ansible realizar tarefas em SHELL
 - Vamos editar a tarefa no playbook.yml com o seguinte:
   ```
   - name: Iniciando o projeto
       shell: 'comando 1; comando 2; comando 3'
   ```
-
+  Vamos colocar um parametro adicional para ele continuar a execução e ignorar os erros.
+  <br>Exemplo: 
+  ```
+  - name: Iniciando o projeto
+      shell: '. /home/ubuntu/tcc/venv/bin/activate; django-admin startproject setup /home/ubuntu/tcc/'
+      ignore_errors: yes
+  ```
+  
